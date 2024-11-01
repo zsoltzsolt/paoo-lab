@@ -1,0 +1,1 @@
+add_library(ImageProcessor ImageProcessor.cpp)

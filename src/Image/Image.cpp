@@ -2,17 +2,31 @@
 #include <cstring>
 #include <iostream>
 
-Image::Image(int width, int height) : width(width), height(height), pixelData(new unsigned char[width * height]) {}
+Image::Image(int width, int height) {
+    std::cout << "Image constructor was called!\n";
+    width = width;
+    height = height;
+    pixelData = new unsigned char[width * height];
+}
 
 Image::~Image() {
+    std::cout << "Image destructor was called!\n";
     delete[] pixelData;
 }
 
-Image::Image(const Image& other) : width(other.width), height(other.height), pixelData(new unsigned char[other.width * other.height]) {
+Image::Image(const Image& other) {
+    std::cout << "Image copy constructor was called!\n";
+    width = other.width;
+    height = other.height;
+    pixelData = new unsigned char[other.width * other.height];
     std::memcpy(pixelData, other.pixelData, width * height);
 }
 
-Image::Image(Image&& other) : width(other.width), height(other.height), pixelData(other.pixelData) {
+Image::Image(Image&& other) {
+    std::cout << "Image move constructor was called!\n";
+    width = other.width;
+    height = other.height;
+    pixelData = other.pixelData;
     other.pixelData = nullptr;
 }
 

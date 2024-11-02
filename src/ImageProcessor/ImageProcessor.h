@@ -10,7 +10,10 @@ private:
     std::vector<Filter> filters;
 
 public:
-    void addFilter(const Filter& filter);
+    ImageProcessor(); // constructor
+    ~ImageProcessor(); // destructor
+
+    void addFilter(Filter& filter);
     void process(Image& img);
 };
 

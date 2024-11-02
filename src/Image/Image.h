@@ -11,11 +11,9 @@ private:
 
 public:
     Image(int width, int height); // constructor
-
     ~Image(); // destructor
 
     Image(const Image& other); // copy constructor
-
     Image(Image&& other); // move constructor
 
     bool load(const std::string& path); // load an image from a specified path

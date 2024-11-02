@@ -1,8 +1,8 @@
 #ifndef IMAGEPROCESSOR_H
 #define IMAGEPROCESSOR_H
 
-#include "../Filter/Filter.h"
-#include "../Image/Image.h"
+#include "Filter.h"
+#include "Image.h"
 #include <vector>
 
 class ImageProcessor {

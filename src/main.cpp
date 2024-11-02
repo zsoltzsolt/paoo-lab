@@ -1,7 +1,7 @@
 #include <iostream>
-#include "Image/Image.h"
-#include "Filter/Filter.h"
-#include "ImageProcessor/ImageProcessor.h"
+#include "../inc/Image.h"
+#include "../inc/Filter.h"
+#include "../inc/ImageProcessor.h"
 
 int main() {
     const std::string separator = "-----------------------------------------\n";

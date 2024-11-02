@@ -2,7 +2,7 @@
 #define FILTER_H
 
 #include <string>
-#include "../Image/Image.h"
+#include "Image.h"
 
 class Filter {
 private:

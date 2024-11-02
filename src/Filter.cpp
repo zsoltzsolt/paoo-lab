@@ -1,4 +1,4 @@
-#include "Filter.h"
+#include "../inc/Filter.h"
 #include <iostream>
 
 Filter::Filter(const std::string& filterType, int filterSize) {

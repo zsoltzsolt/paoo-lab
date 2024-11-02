@@ -13,6 +13,10 @@ public:
     ImageProcessor(); // constructor
     ~ImageProcessor(); // destructor
 
+    ImageProcessor(const ImageProcessor& other); // copy constructor
+
+    ImageProcessor(ImageProcessor&& other); // move constructor
+
     void addFilter(Filter& filter);
     void process(Image& img);
 };

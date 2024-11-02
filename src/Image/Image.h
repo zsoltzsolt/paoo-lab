@@ -10,7 +10,7 @@ private:
     unsigned char* pixelData;
 
 public:
-    Image(int width, int height); // constructor
+    Image(const std::string& path); // constructor
     ~Image(); // destructor
 
     Image(const Image& other); // copy constructor

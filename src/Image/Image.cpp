@@ -2,11 +2,20 @@
 #include <cstring>
 #include <iostream>
 
-Image::Image(int width, int height) {
+Image::Image(const std::string& path) {
     std::cout << "Image constructor was called!\n";
-    width = width;
-    height = height;
+
+    static bool seeded = false;
+    if (!seeded) {
+        std::srand(static_cast<unsigned int>(std::time(0)));
+        seeded = true;
+    }
+
+    width = 100 + (std::rand() % (1920 - 100 + 1)); // Random width between 100 and 1920
+    height = 100 + (std::rand() % (1080 - 100 + 1)); // Random height between 100 and 1920
     pixelData = new unsigned char[width * height];
+
+    load(path);
 }
 
 Image::~Image() {

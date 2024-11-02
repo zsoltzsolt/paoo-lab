@@ -4,7 +4,9 @@
 #include "ImageProcessor/ImageProcessor.h"
 
 int main() {
-    Image img(640, 480);
+    Image img("image1.png");
+
+    std::cout << "Image resolution: (" << img.getWidth() << "x" << img.getHeight() << ")\n";
 
     Filter edgeFilter("EdgeDetection", 1);
     Filter blurFilter("Blur", 2);

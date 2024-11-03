@@ -8,7 +8,7 @@ Filter::Filter(const std::string& filterType, int filterSize) {
 }
 
 Filter::~Filter() {
-    std::cout << "Filter destructor was called for " << this->type  << " and size " << this->size << "!\n";
+    std::cout << "Filter destructor was called!\n";
 }
 
 Filter::Filter(const Filter& other){
@@ -19,7 +19,6 @@ Filter::Filter(const Filter& other){
 
 Filter::Filter(Filter&& other) {
     std::cout << "Filter move constructor was called!\n";
-
     type = std::move(other.type);
     size = other.size;
     other.size = 0;

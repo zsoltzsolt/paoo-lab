@@ -32,6 +32,7 @@ Image::Image(Image&& other) {
 
 bool Image::load(const std::string& path) {
     std::cout << "Loading image from: " << path << "\n";
+    
     static bool seeded = false;
     if (!seeded) {
         std::srand(static_cast<unsigned int>(std::time(0)));

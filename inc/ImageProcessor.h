@@ -17,6 +17,8 @@ public:
 
     ImageProcessor(ImageProcessor&& other); // move constructor
 
+    void showPipeline();
+
     void addFilter(Filter& filter);
     void process(Image& img);
 };

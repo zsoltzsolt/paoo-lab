@@ -9,13 +9,16 @@ ImageProcessor::~ImageProcessor() {
     std::cout << "ImageProcessor destructor was called!\n";
 }
 
-ImageProcessor::ImageProcessor(const ImageProcessor& other): filters(other.filters) {
-
+ImageProcessor::ImageProcessor(const ImageProcessor& other) {
     std::cout << "ImageProcessor copy constructor was called!\n";
+    for (const auto& filter : other.filters) {
+        filters.push_back(filter); 
+    }
 }
 
-ImageProcessor::ImageProcessor(ImageProcessor&& other): filters(std::move(other.filters)){ 
+ImageProcessor::ImageProcessor(ImageProcessor&& other) { 
     std::cout << "ImageProcessor move constructor was called!\n";
+    filters = std::move(other.filters);
 }
 
 void ImageProcessor::addFilter(Filter& filter) {

@@ -9,13 +9,12 @@ ImageProcessor::~ImageProcessor() {
     std::cout << "ImageProcessor destructor was called!\n";
 }
 
-ImageProcessor::ImageProcessor(const ImageProcessor& other)
-    : filters(other.filters) { 
+ImageProcessor::ImageProcessor(const ImageProcessor& other): filters(other.filters) {
+
     std::cout << "ImageProcessor copy constructor was called!\n";
 }
 
-ImageProcessor::ImageProcessor(ImageProcessor&& other) 
-    : filters(std::move(other.filters)) { 
+ImageProcessor::ImageProcessor(ImageProcessor&& other): filters(std::move(other.filters)){ 
     std::cout << "ImageProcessor move constructor was called!\n";
 }
 
@@ -27,4 +26,12 @@ void ImageProcessor::process(Image& img) {
     for (auto& filter: filters) {
         filter.apply(img);
     }
+}
+
+void ImageProcessor::showPipeline() {
+    std::cout << "Input image -> ";
+    for (auto& filter: filters) {
+        std::cout << "(" << filter.getType() << ":" << filter.getSize() << ") -> ";
+    }
+    std::cout << "Output image\n";
 }

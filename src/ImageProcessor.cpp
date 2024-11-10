@@ -1,7 +1,8 @@
 #include "../inc/ImageProcessor.h"
 #include <iostream>
 
-ImageProcessor::ImageProcessor() {
+ImageProcessor::ImageProcessor()
+    :filters() {
     std::cout << "ImageProcessor constructor was called!\n";
 }
 
@@ -16,9 +17,9 @@ ImageProcessor::ImageProcessor(const ImageProcessor& other) {
     }
 }
 
-ImageProcessor::ImageProcessor(ImageProcessor&& other) { 
+ImageProcessor::ImageProcessor(ImageProcessor&& other)
+    : filters(std::move(other.filters)) { 
     std::cout << "ImageProcessor move constructor was called!\n";
-    filters = std::move(other.filters);
 }
 
 void ImageProcessor::addFilter(Filter& filter) {

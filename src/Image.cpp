@@ -2,7 +2,8 @@
 #include <cstring>
 #include <iostream>
 
-Image::Image(const std::string& path) {
+Image::Image(const std::string& path)
+    : width(0), height(0), pixelData(nullptr) {
     std::cout << "Image constructor was called!\n";
     load(path);
 }
@@ -12,22 +13,18 @@ Image::~Image() {
     delete[] pixelData;
 }
 
-Image::Image(const Image& other) {
+Image::Image(const Image& other) 
+    : width(other.width), height(other.height), pixelData(new unsigned char[other.width * other.height]) {
     std::cout << "Image copy constructor was called!\n";
-    width = other.width;
-    height = other.height;
-    pixelData = new unsigned char[other.width * other.height];
     std::memcpy(pixelData, other.pixelData, width * height);
 }
 
-Image::Image(Image&& other) {
+Image::Image(Image&& other) 
+    : width(other.width), height(other.height), pixelData(other.pixelData) {
     std::cout << "Image move constructor was called!\n";
-    width = other.width;
-    height = other.height;
-    pixelData = other.pixelData;
     other.pixelData = nullptr;
-    width = 0;
-    height = 0;
+    other.width = 0;
+    other.height = 0;
 }
 
 bool Image::load(const std::string& path) {

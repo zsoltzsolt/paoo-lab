@@ -4,8 +4,9 @@
 #include "Filter.h"
 #include "Image.h"
 #include <vector>
+#include "Uncopyable.h"
 
-class ImageProcessor {
+class ImageProcessor{
 private:
     std::vector<Filter> filters;
 

@@ -20,6 +20,15 @@ Filter::Filter(Filter&& other)
     std::cout << "Filter move constructor was called!\n";
     other.size = 0;
 }
+// Copy assignment operator
+Filter& Filter::operator=(const Filter& other) {
+    std::cout << "Filter copy assignment operator was called!\n";
+    if(this != &other) {
+        type = other.type;
+        size = other.size;
+    }
+    return *this;
+}
 
 void Filter::apply(Image& image) {
     if (type == "EdgeDetection") {

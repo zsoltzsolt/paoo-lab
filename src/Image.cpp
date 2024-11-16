@@ -5,7 +5,9 @@
 Image::Image(const std::string& path)
     : width(0), height(0), pixelData(nullptr) {
     std::cout << "Image constructor was called!\n";
-    load(path);
+    if (!load(path)) {
+        throw std::runtime_error("Failed to load image!");
+    }
 }
 
 Image::~Image() {
@@ -26,6 +28,8 @@ Image::Image(Image&& other)
     other.width = 0;
     other.height = 0;
 }
+
+
 
 bool Image::load(const std::string& path) {
     std::cout << "Loading image from: " << path << "\n";

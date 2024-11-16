@@ -14,8 +14,9 @@ public:
     ~Filter(); // destructor
 
     Filter(const Filter& other); // copy constructor
-
     Filter(Filter&& other); // move constructor
+
+    Filter& operator=(const Filter& other);
 
     void apply(Image& img);
 

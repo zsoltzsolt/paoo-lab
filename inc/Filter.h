@@ -14,13 +14,19 @@ public:
     ~Filter(); // destructor
 
     Filter(const Filter& other); // copy constructor
-
     Filter(Filter&& other); // move constructor
+
+    Filter& operator=(const Filter& other); // copy assignment operator
 
     void apply(Image& img);
 
+    // getters
     const std::string& getType();
     int getSize();
+
+    // setters
+    void setType(const std::string& newType);
+    void setSize(int newSize);
 
 };
 

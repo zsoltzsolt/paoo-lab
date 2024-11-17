@@ -1,35 +1,37 @@
 #include "../inc/Filter.h"
 #include <iostream>
 
-Filter::Filter(const std::string& filterType, int filterSize) {
+Filter::Filter(const std::string& filterType, int filterSize) 
+    : type(filterType), size(filterSize) {
     std::cout << "Filter constructor was called!\n";
-    type = filterType;
-    size = filterSize;
 }
 
 Filter::~Filter() {
     std::cout << "Filter destructor was called!\n";
 }
 
-Filter::Filter(const Filter& other){
+Filter::Filter(const Filter& other)
+    : type(other.type), size(other.size) {
     std::cout << "Filter copy constructor was called!\n";
-    type = other.type;
-    size = other.size;
 }
 
-Filter::Filter(Filter&& other) {
+Filter::Filter(Filter&& other) 
+    : type(std::move(other.type)), size(other.size){
     std::cout << "Filter move constructor was called!\n";
-    type = std::move(other.type);
-    size = other.size;
     other.size = 0;
+}
+// Copy assignment operator
+Filter& Filter::operator=(const Filter& other) {
+    std::cout << "Filter copy assignment operator was called!\n";
+    if(this != &other) {
+        type = other.type;
+        size = other.size;
+    }
+    return *this;
 }
 
 void Filter::apply(Image& image) {
-    if (type == "EdgeDetection") {
-        std::cout << "Applying Edge Detection ...\n";
-    } else if (type == "Blur") {
-        std::cout << "Applying Blur ...\n";
-    }
+    std::cout << "Applying " << type << " ...\n";
 }
 
 const std::string& Filter::getType() {
@@ -38,4 +40,12 @@ const std::string& Filter::getType() {
 
 int Filter::getSize() {
     return size;
+}
+
+void Filter::setType(const std::string& newType) {
+    type = newType;
+}
+
+void Filter::setSize(int newSize) {
+    size = newSize;
 }

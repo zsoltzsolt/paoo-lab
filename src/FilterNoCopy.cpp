@@ -2,13 +2,7 @@
 #include <iostream>
 
 void FilterNoCopy::apply(Image& img) {
-    if (type == "EdgeDetection") {
-        std::cout << "Applying Edge Detection ...\n";
-    } else if (type == "Blur") {
-        std::cout << "Applying Blur ...\n";
-    } else {
-        std::cout << "Unknown filter type: " << type << "\n";
-    }
+    std::cout << "Applying " << type << " ...\n";
 }
 
 const std::string& FilterNoCopy::getType() const {

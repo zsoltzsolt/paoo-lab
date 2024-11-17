@@ -31,11 +31,7 @@ Filter& Filter::operator=(const Filter& other) {
 }
 
 void Filter::apply(Image& image) {
-    if (type == "EdgeDetection") {
-        std::cout << "Applying Edge Detection ...\n";
-    } else if (type == "Blur") {
-        std::cout << "Applying Blur ...\n";
-    }
+    std::cout << "Applying " << type << " ...\n";
 }
 
 const std::string& Filter::getType() {

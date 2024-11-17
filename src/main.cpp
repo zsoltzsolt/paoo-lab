@@ -83,9 +83,7 @@ void Tema2() {
 
     createSeparator(GREEN, "Item 6 - Explicitly disallow the use of compiler-generated functions.");
 
-    FilterNoCopy f5;
-    f5.setType("Sobel");
-    f5.setSize(3);
+    FilterNoCopy f5("Sobel Filter", 9);
     std::cout << "Filter " << f3.getType() << " and size " << f3.getSize() << "\n";
 
     // Copy ctor and copy assignment operator deleted

@@ -11,6 +11,12 @@ private:
     int size;
 
 public:
+    FilterNoCopy(const std::string& filterType, int filterSize); // constructor
+    ~FilterNoCopy(); // destructor
+
+    // FilterNoCopy(const FilterNoCopy&) = delete;
+    // FilterNoCopy& operator=(const FilterNoCopy&) = delete;
+
     void apply(Image& img);
 
     // getters

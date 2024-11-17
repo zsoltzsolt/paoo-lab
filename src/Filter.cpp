@@ -41,3 +41,11 @@ const std::string& Filter::getType() {
 int Filter::getSize() {
     return size;
 }
+
+void Filter::setType(const std::string& newType) {
+    type = newType;
+}
+
+void Filter::setSize(int newSize) {
+    size = newSize;
+}

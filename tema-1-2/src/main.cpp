@@ -11,7 +11,12 @@
 #define RESET "\033[0m"
 
 void createSeparator(const std::string& color, const std::string& text) {
-    std::cout << color << "\n----- " + text + " -----\n\n" << RESET;
+    std::cout << color << "\n--------------- " + text + " ---------------\n\n" << RESET;
+}
+
+Filter createFilter() {
+    Filter temp("Blur", 10); // Temporary object
+    return temp;         // Move or copy, depending on constructors
 }
 
 void Tema1() {
@@ -53,6 +58,10 @@ void Tema1() {
 
     createSeparator(GREEN, "Move constructor");
     ImageProcessor moved_processor = std::move(processor); // move constructor
+
+    //createSeparator(GREEN, "Move constructor - 2");
+
+    //Filter new_filter = createFilter();
 
     createSeparator(GREEN, "Destructors");
 }

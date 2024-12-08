@@ -8,6 +8,8 @@ ImageProcessor::ImageProcessor()
 
 ImageProcessor::~ImageProcessor() {
     std::cout << "ImageProcessor destructor was called!\n";
+    // std::vector follows the "Resource Acquisition Is Initialization" (RAII) principle. 
+    // It ensures that resources are allocated and released automatically.
 }
 
 ImageProcessor::ImageProcessor(const ImageProcessor& other) {
